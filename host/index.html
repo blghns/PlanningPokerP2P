@@ -5,6 +5,21 @@
     <title>Planning Poker P2P - Host</title>
 </head>
 <body>
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+
 <h1>Host</h1>
+<button id="getVoteLink">Get Vote Link</button>
+<input id="voteLink" onClick="this.select();" type="text"/>
+<br><br>
+<button id="revealButton" type="text"> Reveal Votes </button>
+<button id="clearButton" type="text"> Clear Votes </button>
+
+<h2> Lobby </h2>
+<div id="lobby">
+</div>
+
+<h2> Average </h2>
+<div id="average"></div>
+<script src="host.js"></script>
 </body>
 </html>
