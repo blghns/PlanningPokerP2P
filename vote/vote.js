@@ -26,6 +26,7 @@
             }
 
             console.log('ID: ' + peer.id);
+            joinToHost();
         });
         peer.on('connection', function (c) {
             // Disallow incoming connections
@@ -104,17 +105,19 @@
             console.log(s + " signal sent");
         } else {
             console.log('Connection is closed');
+            joinToHost();
         }
     }
 
     // Since all our callbacks are setup, start the process of obtaining an ID
     initialize();
-
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const hostId = urlParams.get("hostId");
-    if (hostId != null) {
-        setTimeout(() => join(hostId), 500); // do not join immediately.
+    
+    function joinToHost() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const hostId = urlParams.get("hostId");
+        if (hostId != null) {
+            join(hostId);
+        }
     }
-
 })();
