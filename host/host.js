@@ -99,7 +99,7 @@
             const { username, vote, type } = connectionVoteLookup[connectionId] ?? {};
             const votedText = reveal ? vote : type === "vote" ? "voted" : "present";
             if (Number.isInteger(+vote)) {
-                total += vote;
+                total += +vote;
                 count++;
             }
             if (type === "vote") {
