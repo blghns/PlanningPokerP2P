@@ -96,7 +96,7 @@
         let count = 0;
         let votedCount = 0;
         const tableBody = connectionKeys.map(connectionId => {
-            const { username, vote, type } = connectionVoteLookup[connectionId];
+            const { username, vote, type } = connectionVoteLookup[connectionId] ?? {};
             const votedText = reveal ? vote : type === "vote" ? "voted" : "present";
             if (Number.isInteger(+vote)) {
                 total += vote;
